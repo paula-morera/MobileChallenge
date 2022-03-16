@@ -1,6 +1,7 @@
 package adapter.screens;
 
 import adapter.bases.BaseMobileScreen;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
 import java.util.List;
@@ -9,8 +10,8 @@ public class WatchlistScreen extends BaseMobileScreen {
     private String moviesBy ="new UiSelector().resourceId(\"com.imdb.mobile:id/primaryText\")";
 
     List<AndroidElement> resultElements;
-    public WatchlistScreen() {
-        super();
+    public WatchlistScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
     }
 
     public Boolean movieInWatchlist(String movie){

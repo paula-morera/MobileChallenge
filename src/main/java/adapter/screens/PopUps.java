@@ -1,6 +1,8 @@
 package adapter.screens;
 
 import adapter.bases.BaseMobileScreen;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
 
 public class PopUps extends BaseMobileScreen {
@@ -10,8 +12,8 @@ public class PopUps extends BaseMobileScreen {
     private By whileUsingBy = By.id("com.android.permissioncontroller:id/permission_allow_one_time_button");
     private By okBy = By.id("android:id/button2");
 
-    public PopUps() {
-        super();
+    public PopUps(AndroidDriver<AndroidElement> driver) {
+        super(driver);
     }
 
     public PopUps denyLocation(){

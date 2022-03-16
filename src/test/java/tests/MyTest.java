@@ -1,6 +1,7 @@
 package tests;
 
 import adapter.bases.BaseMobileTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -12,16 +13,17 @@ public class MyTest extends BaseMobileTest {
         globalNavigationScreen.goToSearch();
         searchScreen.searchMovie("Fight club")
                 .selectMovie(0);
-        System.out.println(movieScreen.getOverview());
-        //Assert.assertEquals("",movieScreen.getOverview());
+        Assert.assertEquals("An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more."
+                          ,movieScreen.getOverview());
     }
 
     @Test
     public void watchList(){
-        loginScreen.signWithGoogle()
-                .selectAccount();
+        loginScreen.signWithGoogle();
+        //        .selectAccount();
+        globalNavigationScreen.goToSearch();
         searchScreen.searchMovie("Fight club")
-                .selectMovie(0);
+                .selectMovie(1);
         movieScreen.addToList();
         globalNavigationScreen.goToYou();
         youScreen.watchList();

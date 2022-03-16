@@ -1,24 +1,29 @@
 package adapter.screens;
 
 import adapter.bases.BaseMobileScreen;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
+import org.pmw.tinylog.Logger;
 
 public class SearchScreen extends BaseMobileScreen {
 
-    private By searcBarBy = By.id("com.imdb.mobile:id/search_plate");
-    private String movieSelector = "new UiSelector().resourceId(\"com.imdb.mobile:id/holder\").index(";
-    public SearchScreen() {
-        super();
+    private By searchBarBy = By.id("com.imdb.mobile:id/search_src_text");
+    private By moviesBy = By.id("com.imdb.mobile:id/holder");
+    public SearchScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
     }
 
     public SearchScreen searchMovie(String movie){
-        findMobileElement(searcBarBy).sendKeys(movie);
+        Logger.info("Searching for movie "+movie);
+        findMobileElement(searchBarBy).click();
+        findMobileElement(searchBarBy).sendKeys(movie);
         return this;
     }
 
     public MovieScreen selectMovie(int index){
-        movieSelector=movieSelector+Integer.toString(index)+")";
-        findMobileElement(movieSelector).click();
-        return new MovieScreen();
+        Logger.info("Selecting movie "+findMobileElements(moviesBy).get(index).getText());
+        findMobileElements(moviesBy).get(index).click();
+        return new MovieScreen(driver);
     }
 }

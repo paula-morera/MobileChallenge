@@ -17,18 +17,13 @@ import java.util.List;
 
 public class BaseMobileScreen {
 
-    private AndroidDriver<AndroidElement> driver;
+    protected AndroidDriver<AndroidElement> driver;
     private WebDriverWait wait;
     private AndroidElement androidElement;
 
-    public BaseMobileScreen()  {
-        driver = MobileAppDriver.getMoviesAppDriver(ConfigCapabilities.getCapabilities());
+    public BaseMobileScreen(AndroidDriver<AndroidElement> driver)  {
+        this.driver = driver;
         wait = new WebDriverWait(driver,30);
-        initElements();
-    }
-
-    private void initElements(){
-        PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").textContains(\"Ok\")")
@@ -45,9 +40,11 @@ public class BaseMobileScreen {
     }
 
     public List<AndroidElement> findMobileElements(By locator){
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
         return driver.findElements(locator);
     }
     public List<AndroidElement> findMobileElements(String selector){
+        wait.until(ExpectedConditions.visibilityOf(driver.findElementByAndroidUIAutomator(selector)));
         return driver.findElementsByAndroidUIAutomator("");
     }
 

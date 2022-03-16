@@ -22,13 +22,13 @@ public class BaseMobileTest {
     @BeforeSuite(alwaysRun = true)
     public void SetUp(){
         driver = MobileAppDriver.getMoviesAppDriver(ConfigCapabilities.getCapabilities());
-        globalNavigationScreen = new GlobalNavigationScreen();
-        loginScreen = new LoginScreen();
-        searchScreen = new SearchScreen();
-        movieScreen = new MovieScreen();
-        youScreen = new YouScreen();
-        watchlistScreen = new WatchlistScreen();
-        popUps = new PopUps();
+        globalNavigationScreen = new GlobalNavigationScreen(driver);
+        loginScreen = new LoginScreen(driver);
+        searchScreen = new SearchScreen(driver);
+        movieScreen = new MovieScreen(driver);
+        youScreen = new YouScreen(driver);
+        watchlistScreen = new WatchlistScreen(driver);
+        popUps = new PopUps(driver);
         popUps.denyLocation();
         popUps.acceptNotificacion();
     }
