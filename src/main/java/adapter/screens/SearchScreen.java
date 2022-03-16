@@ -21,9 +21,11 @@ public class SearchScreen extends BaseMobileScreen {
         return this;
     }
 
-    public MovieScreen selectMovie(int index){
-        Logger.info("Selecting movie "+findMobileElements(moviesBy).get(index).getText());
-        findMobileElements(moviesBy).get(index).click();
-        return new MovieScreen(driver);
+    public String selectMovie(int index){
+        AndroidElement movie = findMobileElements(moviesBy).get(index);
+        String title = movie.getText();
+        Logger.info("Selecting movie" + title);
+        movie.click();
+        return title;
     }
 }

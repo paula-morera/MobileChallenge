@@ -10,7 +10,8 @@ import org.pmw.tinylog.Logger;
 public class MovieScreen extends BaseMobileScreen {
     private By overviewBy = By.id("com.imdb.mobile:id/plot_overview");
     private By addToListBy = By.id("com.imdb.mobile:id/state_off");
-    private By screenBy = By.id("com.imdb.mobile:id/main_content");
+    private String scrollScreen = "new UiScrollable(new UiSelector()).resourceId(\"com.imdb.mobile:id/main_content\").scrollIntoView(text(\"Add to Watchlist\"))";
+    private By scrollScreenBy = By.id("com.imdb.mobile:id/main_content");
 
     public MovieScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
@@ -21,13 +22,9 @@ public class MovieScreen extends BaseMobileScreen {
         return findMobileElement(overviewBy).getAndroidElement().getText();
     }
 
-    public void addToList(){
-        Logger.info("Scrolling down");
-        AndroidElement screen = findMobileElement(screenBy).getAndroidElement();
-        TouchActions action = new TouchActions(driver);
-        action.scroll(screen, 10, 100);
-        action.perform();
+    public MovieScreen addToList(){
         Logger.info("Adding movie to watchlist");
         findMobileElement(addToListBy).click();
+        return this;
     }
 }

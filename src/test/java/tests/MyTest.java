@@ -19,14 +19,24 @@ public class MyTest extends BaseMobileTest {
 
     @Test
     public void watchList(){
+        String movieAdded;
         loginScreen.signWithGoogle();
-        //        .selectAccount();
         globalNavigationScreen.goToSearch();
-        searchScreen.searchMovie("Fight club")
-                .selectMovie(1);
+        movieAdded = searchScreen.searchMovie("the little mermaid")
+                                .selectMovie(0);
         movieScreen.addToList();
         globalNavigationScreen.goToYou();
         youScreen.watchList();
+        Assert.assertTrue(watchlistScreen.isMovieInWatchlist(movieAdded));
+    }
+
+    @Test
+    public void rateMovie(){
+        loginScreen.signWithGoogle();
+        globalNavigationScreen.goToSearch();
+        searchScreen.searchMovie("shutter island")
+                .selectMovie(0);
+
     }
 }
 

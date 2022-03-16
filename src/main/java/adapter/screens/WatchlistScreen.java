@@ -3,21 +3,24 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.openqa.selenium.By;
+import org.pmw.tinylog.Logger;
 
 import java.util.List;
 
 public class WatchlistScreen extends BaseMobileScreen {
-    private String moviesBy ="new UiSelector().resourceId(\"com.imdb.mobile:id/primaryText\")";
+    private By moviesBy = By.id("com.imdb.mobile:id/primaryText");
 
     List<AndroidElement> resultElements;
     public WatchlistScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
-    public Boolean movieInWatchlist(String movie){
+    public Boolean isMovieInWatchlist(String movie){
+        Logger.info("Verifying if "+movie+" is in watchlist");
         resultElements = findMobileElements(moviesBy);
         for(AndroidElement element: resultElements){
-            if(element.getText().toLowerCase()==movie.toLowerCase()){
+            if(element.getText().toLowerCase().contains(movie.toLowerCase())){
                 return true;
             }
         }
