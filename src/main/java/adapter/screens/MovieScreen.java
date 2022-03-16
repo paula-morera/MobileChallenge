@@ -1,18 +1,23 @@
 package adapter.screens;
 
 import adapter.bases.BaseMobileScreen;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.Dimension;
 import org.pmw.tinylog.Logger;
+
+import java.time.Duration;
 
 public class MovieScreen extends BaseMobileScreen {
     private By overviewBy = By.id("com.imdb.mobile:id/plot_overview");
-    private By addToListBy = By.id("com.imdb.mobile:id/state_off");
-    private String scrollScreen = "new UiScrollable(new UiSelector()).resourceId(\"com.imdb.mobile:id/main_content\").scrollIntoView(text(\"Add to Watchlist\"))";
-    private By scrollScreenBy = By.id("com.imdb.mobile:id/main_content");
-
+    private By contentScreenBy = By.id("com.imdb.mobile:id/main_content_scroller");
+    private String addToWatchlist = "new UiScrollable(new UiSelector().scrollable(true)).scrollForward().scrollIntoView(new UiSelector().resourceIdMatches(\"com.imdb.mobile:id/state_off\"))";
+    private String scrollReviews = "new UiScrollable(new UiSelector().scrollable(true)).scrollForward().scrollIntoView(new UiSelector().text(\"From top reviewers\"))";
     public MovieScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
@@ -24,7 +29,11 @@ public class MovieScreen extends BaseMobileScreen {
 
     public MovieScreen addToList(){
         Logger.info("Adding movie to watchlist");
-        findMobileElement(addToListBy).click();
+        findMobileElement(addToWatchlist).click();
         return this;
+    }
+
+    public void scroll() {
+        findMobileElement("new UiScrollable(new UiSelector().scrollable(true)).scrollForward().scrollIntoView(new UiSelector().text(\"From top reviewers\"))");
     }
 }

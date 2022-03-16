@@ -4,6 +4,7 @@ import adapter.bases.BaseMobileScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.pmw.tinylog.Logger;
 
 public class GlobalNavigationScreen extends BaseMobileScreen {
@@ -36,4 +37,6 @@ public class GlobalNavigationScreen extends BaseMobileScreen {
         Logger.info("Go to You page");
         findMobileElement(youBy).click();
     }
+
+
 }

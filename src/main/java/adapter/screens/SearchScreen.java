@@ -10,6 +10,8 @@ public class SearchScreen extends BaseMobileScreen {
 
     private By searchBarBy = By.id("com.imdb.mobile:id/search_src_text");
     private By moviesBy = By.id("com.imdb.mobile:id/holder");
+    private By searchButtonBy = By.id("com.imdb.mobile:id/search_mag_icon");
+
     public SearchScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }

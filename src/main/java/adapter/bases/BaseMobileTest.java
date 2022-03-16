@@ -37,7 +37,7 @@ public class BaseMobileTest {
     public void TearDown()
     {
         if(driver!=null){
-            driver.quit();
+    //        driver.quit();
         }
     }
 }

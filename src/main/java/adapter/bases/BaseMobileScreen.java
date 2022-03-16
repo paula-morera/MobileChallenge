@@ -2,6 +2,7 @@ package adapter.bases;
 
 import core.ConfigCapabilities;
 import core.MobileAppDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -35,7 +36,8 @@ public class BaseMobileScreen {
     }
 
     public BaseMobileScreen findMobileElement(String selector){
-        androidElement = (AndroidElement) wait.until(ExpectedConditions.visibilityOf(driver.findElementByAndroidUIAutomator(selector)));
+        androidElement = (AndroidElement) wait.until(ExpectedConditions.visibilityOf(
+                driver.findElement(MobileBy.AndroidUIAutomator(selector))));
         return this;
     }
 
@@ -44,10 +46,9 @@ public class BaseMobileScreen {
         return driver.findElements(locator);
     }
     public List<AndroidElement> findMobileElements(String selector){
-        wait.until(ExpectedConditions.visibilityOf(driver.findElementByAndroidUIAutomator(selector)));
-        return driver.findElementsByAndroidUIAutomator("");
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(MobileBy.AndroidUIAutomator(selector))));
+        return driver.findElements(MobileBy.AndroidUIAutomator(selector));
     }
-
 
     public AndroidElement getAndroidElement() {
         return androidElement;
