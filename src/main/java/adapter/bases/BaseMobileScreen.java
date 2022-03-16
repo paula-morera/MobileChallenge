@@ -1,7 +1,7 @@
-package Adapter.Bases;
+package adapter.bases;
 
-import Core.ConfigCapabilities;
-import Core.MobileAppDriver;
+import core.ConfigCapabilities;
+import core.MobileAppDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;

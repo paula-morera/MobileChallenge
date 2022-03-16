@@ -1,7 +1,6 @@
-package Adapter.Screens;
+package adapter.screens;
 
-import Adapter.Bases.BaseMobileScreen;
-import io.appium.java_client.android.AndroidElement;
+import adapter.bases.BaseMobileScreen;
 import org.openqa.selenium.By;
 
 public class MovieScreen extends BaseMobileScreen {

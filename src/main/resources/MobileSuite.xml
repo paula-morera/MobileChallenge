@@ -3,7 +3,7 @@
 <suite name="The_Suite">
     <test name="Regression">
         <classes>
-            <class name="Tests.MyTest"></class>
+            <class name="tests.MyTest"></class>
         </classes>
     </test>
 </suite>

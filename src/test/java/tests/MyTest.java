@@ -1,8 +1,6 @@
-package Tests;
+package tests;
 
-import Adapter.Bases.BaseMobileTest;
-import Adapter.Screens.YouScreen;
-import org.testng.Assert;
+import adapter.bases.BaseMobileTest;
 import org.testng.annotations.Test;
 
 

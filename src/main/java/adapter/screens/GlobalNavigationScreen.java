@@ -1,6 +1,6 @@
-package Adapter.Screens;
+package adapter.screens;
 
-import Adapter.Bases.BaseMobileScreen;
+import adapter.bases.BaseMobileScreen;
 import org.openqa.selenium.By;
 
 public class GlobalNavigationScreen extends BaseMobileScreen {

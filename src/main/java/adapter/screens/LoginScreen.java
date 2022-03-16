@@ -1,8 +1,7 @@
-package Adapter.Screens;
+package adapter.screens;
 
-import Adapter.Bases.BaseMobileScreen;
+import adapter.bases.BaseMobileScreen;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginScreen extends BaseMobileScreen{
     private By skipBy = By.id("com.imdb.mobile:id/splash_not_now");
