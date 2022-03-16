@@ -18,15 +18,15 @@ public class PopUps extends BaseMobileScreen {
         findMobileElement(denyBy).click();
         return this;
     }
-    public PopUps thisTimeLocation(){
+    public PopUps acceptThisTimeLocation(){
         findMobileElement(thisTimeBy).click();
         return this;
     }
-    public PopUps whileUsingLocation(){
+    public PopUps acceptWhileUsingLocation(){
         findMobileElement(whileUsingBy).click();
         return this;
     }
-    public PopUps acceptNotiicacion(){
+    public PopUps acceptNotificacion(){
         findMobileElement(okBy).click();
         return this;
     }

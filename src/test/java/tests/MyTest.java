@@ -8,7 +8,7 @@ public class MyTest extends BaseMobileTest {
 
     @Test
     public void movieDescription(){
-        loginScreen.SkipSingIn();
+        loginScreen.skipSingIn();
         globalNavigationScreen.goToSearch();
         searchScreen.searchMovie("Fight club")
                 .selectMovie(0);
@@ -18,8 +18,8 @@ public class MyTest extends BaseMobileTest {
 
     @Test
     public void watchList(){
-        loginScreen.SignWithGoogle()
-                .SelectAccount();
+        loginScreen.signWithGoogle()
+                .selectAccount();
         searchScreen.searchMovie("Fight club")
                 .selectMovie(0);
         movieScreen.addToList();

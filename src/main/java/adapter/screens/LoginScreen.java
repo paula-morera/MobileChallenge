@@ -12,16 +12,16 @@ public class LoginScreen extends BaseMobileScreen{
         super();
     }
 
-    public void SkipSingIn(){
+    public void skipSingIn(){
         findMobileElement(skipBy).click();
     }
 
-    public LoginScreen SignWithGoogle(){
+    public LoginScreen signWithGoogle(){
         findMobileElement(signInIMDBby).click();
         return this;
     }
 
-    public LoginScreen SelectAccount(){
+    public LoginScreen selectAccount(){
         findMobileElement(accountBy).click();
         findMobileElement(okAccountBy).click();
         return this;

@@ -30,7 +30,7 @@ public class BaseMobileTest {
         watchlistScreen = new WatchlistScreen();
         popUps = new PopUps();
         popUps.denyLocation();
-        popUps.acceptNotiicacion();
+        popUps.acceptNotificacion();
     }
 
     @AfterSuite(alwaysRun = true)
