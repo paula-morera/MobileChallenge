@@ -20,6 +20,7 @@ public class MovieScreen extends BaseMobileScreen {
     private By addReviewButtonBy = By.xpath("//android.widget.TextView[@text=\"Rate\"]");
     private String addToWatchlist = "new UiScrollable(new UiSelector().scrollable(true)).scrollForward().scrollIntoView(new UiSelector().resourceIdMatches(\"com.imdb.mobile:id/state_off\"))";
     private String scrollReviews = "new UiScrollable(new UiSelector().scrollable(true)).scrollForward().scrollIntoView(new UiSelector().text(\"From top reviewers\"))";
+    private String scrollGenres = "new UiScrollable(new UiSelector().resourceIdMatches(\".*genres_list\")).setAsHorizontalList().scrollIntoView(new UiSelector().text(\"";
 
     public MovieScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
@@ -52,5 +53,12 @@ public class MovieScreen extends BaseMobileScreen {
         return new RateScreen(driver);
     }
 
+    @Step("Verify genre in movie")
+    public MovieScreen isGenreInMovie(String genre){
+        Logger.info("Verifying genre "+genre+" in movie");
+        scrollGenres += genre+"\"))";
+        findMobileElement(scrollGenres);
+        return this;
+    }
 
 }

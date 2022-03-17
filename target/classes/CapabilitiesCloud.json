@@ -1,0 +1,9 @@
+{
+  "app": "4492ea1e-5912-4d37-9fb4-688aa672d977",
+  "deviceName": "Android GoogleAPI Emulator",
+  "platformName": "Android",
+  "platformVersion": "11.0",
+  "appiumVersion" : "1.20.2",
+  "appPackage": "com.imdb.mobile",
+  "appActivity": "com.imdb.mobile.HomeActivity"
+}

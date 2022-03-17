@@ -42,5 +42,4 @@ public class GlobalNavigationScreen extends BaseMobileScreen {
         findMobileElement(youBy).click();
     }
 
-
 }

@@ -42,12 +42,11 @@ public class MyTest extends BaseMobileTest {
 
     @Test
     public void flow(){
-        /*
-        populares por genero
-        genero
-        escoger pelicula
-        verificar genero
-         */
+        globalNavigationScreen.goToSearch();
+        searchScreen.popularMoviesByGenre()
+                .selectingGenre("Animation");
+        genreScreen.selectMovie(2);
+        movieScreen.isGenreInMovie("Animation");
     }
 }
 
