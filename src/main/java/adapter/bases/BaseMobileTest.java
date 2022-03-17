@@ -18,6 +18,7 @@ public class BaseMobileTest {
     public LoginScreen loginScreen;
     public YouScreen youScreen;
     public WatchlistScreen watchlistScreen;
+    public RateScreen rateScreen;
 
     @BeforeSuite(alwaysRun = true)
     public void SetUp(){
@@ -28,6 +29,7 @@ public class BaseMobileTest {
         movieScreen = new MovieScreen(driver);
         youScreen = new YouScreen(driver);
         watchlistScreen = new WatchlistScreen(driver);
+        rateScreen = new RateScreen(driver);
         popUps = new PopUps(driver);
         popUps.denyLocation();
         popUps.acceptNotificacion();

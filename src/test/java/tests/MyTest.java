@@ -36,16 +36,11 @@ public class MyTest extends BaseMobileTest {
         globalNavigationScreen.goToSearch();
         searchScreen.searchMovie("shutter island")
                 .selectMovie(0);
-
-    }
-
-    @Test
-    public void scroll(){
-        loginScreen.skipSingIn();
-        globalNavigationScreen.goToSearch();
-        searchScreen.searchMovie("shutter island")
-                .selectMovie(0);
-        movieScreen.addToList();
+        movieScreen.scrollUserReviews()
+                .rateMovie();
+        rateScreen.selectingRate(9)
+                .submitRate()
+                .isSubmit();
     }
 }
 

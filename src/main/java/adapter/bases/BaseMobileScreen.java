@@ -21,6 +21,7 @@ public class BaseMobileScreen {
     protected AndroidDriver<AndroidElement> driver;
     private WebDriverWait wait;
     private AndroidElement androidElement;
+    private By homeElementBy = By.id("com.imdb.mobile:id/video_hero_view");
 
     public BaseMobileScreen(AndroidDriver<AndroidElement> driver)  {
         this.driver = driver;
@@ -80,6 +81,12 @@ public class BaseMobileScreen {
         androidElement.sendKeys(text);
         return this;
     }
+
+    public BaseMobileScreen waitForHome(){
+        findMobileElement(homeElementBy);
+        return this;
+    }
 }
+
 
 
