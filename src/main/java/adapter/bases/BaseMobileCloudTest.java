@@ -1,9 +1,7 @@
 package adapter.bases;
 
-
 import adapter.screens.*;
 import core.ConfigCapabilities;
-import core.ConfigCapabilitiesCloud;
 import core.MobileAppDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -11,12 +9,13 @@ import io.qameta.allure.Allure;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.ByteArrayInputStream;
 
-
-public class BaseMobileTest {
+public class BaseMobileCloudTest {
     private AndroidDriver<AndroidElement> driver;
     public PopUps popUps;
     public GlobalNavigationScreen globalNavigationScreen;
@@ -29,25 +28,15 @@ public class BaseMobileTest {
 
     @BeforeSuite(alwaysRun = true)
     public void SetUp(){
-        driver = ConfigCapabilitiesCloud.getMoviesAppDriver(ConfigCapabilitiesCloud.getCapabilitiesCloud());
+        driver = MobileAppDriver.getMoviesAppDriver(ConfigCapabilities.getCapabilities());
         globalNavigationScreen = new GlobalNavigationScreen(driver);
         loginScreen = new LoginScreen(driver);
         searchScreen = new SearchScreen(driver);
         movieScreen = new MovieScreen(driver);
-        youScreen = new YouScreen(driver);
-        watchlistScreen = new WatchlistScreen(driver);
-        rateScreen = new RateScreen(driver);
         popUps = new PopUps(driver);
         popUps.denyLocation();
         popUps.acceptNotificacion();
-        loginScreen.signWithGoogle();
-    }
-
-    @AfterMethod
-    public void verifyFail(ITestResult result){
-        if(!result.isSuccess()){
-            Allure.addAttachment("Failed screenshot on "+ result.getMethod(),new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
-        }
+        loginScreen.skipSingIn();
     }
 
     @AfterSuite(alwaysRun = true)
@@ -58,6 +47,3 @@ public class BaseMobileTest {
         }
     }
 }
-
-
-

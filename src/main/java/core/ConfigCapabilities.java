@@ -17,7 +17,7 @@ public class ConfigCapabilities {
     private static JsonParser parser = new JsonParser();
     private static DesiredCapabilities capabilities = new DesiredCapabilities();
 
-    private static void ApplicationSetUp(DesiredCapabilities capabilities){
+    static void ApplicationSetUp(DesiredCapabilities capabilities){
         capabilities.setCapability("appPackage", getJsonDataProperty(APP_PACKAGE));
         capabilities.setCapability("appActivity", getJsonDataProperty(APP_ACTIVITY));
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, getJsonDataProperty(DEVICE_NAME));
