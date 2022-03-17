@@ -39,7 +39,7 @@ public class BaseMobileTest {
         rateScreen = new RateScreen(driver);
         popUps = new PopUps(driver);
         popUps.denyLocation();
-        popUps.acceptNotificacion();
+        popUps.acceptNotification();
         loginScreen.signWithGoogle();
     }
 

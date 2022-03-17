@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.pmw.tinylog.Logger;
 
@@ -12,8 +13,9 @@ public class YouScreen extends BaseMobileScreen {
         super(driver);
     }
 
+    @Step("Clicking in watchlist")
     public void watchList(){
-        Logger.info("View all element in watchlist");
+        Logger.info("Clicking in watchlist");
         findMobileElement(watchListBy).click();
     }
 }

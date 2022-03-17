@@ -28,7 +28,7 @@ public class BaseMobileCloudTest {
         movieScreen = new MovieScreen(driver);
         popUps = new PopUps(driver);
         popUps.denyLocation();
-        popUps.acceptNotificacion();
+        popUps.acceptNotification();
         loginScreen.skipSingIn();
     }
 

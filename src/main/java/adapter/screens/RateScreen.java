@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.pmw.tinylog.Logger;
 import org.testng.SkipException;
@@ -16,6 +17,7 @@ public class RateScreen extends BaseMobileScreen {
         super(driver);
     }
 
+    @Step("Selecting rate score")
     public RateScreen selectingRate(int score){
         Logger.info("Rating the movie with "+score);
         if(score>=1 && score<=10){
@@ -27,12 +29,14 @@ public class RateScreen extends BaseMobileScreen {
         }
     }
 
+    @Step("Submitting rate")
     public RateScreen submitRate(){
         Logger.info("Submitting rate");
         findMobileElement(submitButtonBy).click();
         return this;
     }
 
+    @Step("Verifying submission")
     public Boolean isSubmit(){
         Logger.info("Verifying submission");
         return elementExist(submissionMessageBy);

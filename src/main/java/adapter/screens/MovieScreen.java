@@ -7,6 +7,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.pmw.tinylog.Logger;
@@ -24,23 +25,27 @@ public class MovieScreen extends BaseMobileScreen {
         super(driver);
     }
 
+    @Step("Getting overview of movie")
     public String getOverview(){
         Logger.info("Getting overview of movie");
         return findMobileElement(overviewBy).getAndroidElement().getText();
     }
 
+    @Step("Adding movie to watchlist")
     public MovieScreen addToList(){
         Logger.info("Adding movie to watchlist");
         findMobileElement(addToWatchlist).click();
         return this;
     }
 
+    @Step("Scrolling to reviews")
     public MovieScreen scrollUserReviews(){
         Logger.info("Scrolling to reviews");
         findMobileElement(scrollReviews);
         return this;
     }
 
+    @Step("Click rate button")
     public RateScreen rateMovie(){
         Logger.info("Click rate button");
         findMobileElement(addReviewButtonBy).click();
