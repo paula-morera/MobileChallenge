@@ -61,11 +61,21 @@ public class BaseMobileScreen {
         innerWait.ignoring(TimeoutException.class);
         innerWait.ignoring(WebDriverException.class);
         try{
-            return innerWait.until(innerDriver-> driver.findElements(locator).size()>0);
+            return innerWait.until(innerDriver-> findMobileElements(locator).size()>0);
         }catch (Exception e){
             return false;
         }
+    }
 
+    public Boolean elementExist(String selector){
+        WebDriverWait innerWait = new WebDriverWait(driver, 5);
+        innerWait.ignoring(TimeoutException.class);
+        innerWait.ignoring(WebDriverException.class);
+        try{
+            return innerWait.until(innerDriver-> findMobileElements(selector).size()>0);
+        }catch (Exception e){
+            return false;
+        }
     }
 
     public BaseMobileScreen click(){

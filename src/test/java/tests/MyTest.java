@@ -36,8 +36,8 @@ public class MyTest extends BaseMobileTest {
         movieScreen.scrollUserReviews()
                 .rateMovie();
         rateScreen.selectingRate(9)
-                .submitRate()
-                .isSubmit();
+                .submitRate();
+        Assert.assertTrue(rateScreen.isSubmit());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class MyTest extends BaseMobileTest {
         searchScreen.popularMoviesByGenre()
                 .selectingGenre("Animation");
         genreScreen.selectMovie(2);
-        movieScreen.isGenreInMovie("Animation");
+        Assert.assertTrue(movieScreen.isGenreInMovie("Animation"));
     }
 }
 

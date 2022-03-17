@@ -54,11 +54,10 @@ public class MovieScreen extends BaseMobileScreen {
     }
 
     @Step("Verify genre in movie")
-    public MovieScreen isGenreInMovie(String genre){
+    public Boolean isGenreInMovie(String genre){
         Logger.info("Verifying genre "+genre+" in movie");
         scrollGenres += genre+"\"))";
-        findMobileElement(scrollGenres);
-        return this;
+        return elementExist(scrollGenres);
     }
 
 }
