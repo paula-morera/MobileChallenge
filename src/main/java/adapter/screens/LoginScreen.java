@@ -12,12 +12,14 @@ public class LoginScreen extends BaseMobileScreen{
     private By signInIMDBby = By.id("com.imdb.mobile:id/google_oauth");
     private By accountBy = By.id("com.google.android.gms:id/select_dialog_listview");
     private By okAccountBy = By.id("android:id/button1");
+    private String skipCroll = "new UiScrollable(new UiSelector().scrollable(true)).scrollForward().scrollIntoView(new UiSelector().text(\"NOT NOW\"))";
     public LoginScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
     public void skipSingIn(){
         Logger.info("Skipping sing in");
+        findMobileElement(skipCroll);
         findMobileElement(skipBy).click();
         waitForHome();
     }

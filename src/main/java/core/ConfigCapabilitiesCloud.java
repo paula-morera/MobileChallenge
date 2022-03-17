@@ -19,7 +19,9 @@ public class ConfigCapabilitiesCloud {
     private static final String DEVICE_NAME = "deviceName";
     private static final String PLATFORM_NAME = "platformName";
     private static final String PLATFORM_VERSION = "platformVersion";
-    private static final String APP = "appName";
+    private static final String APP_PACKAGE = "appPackage";
+    private static final String APP_ACTIVITY = "appActivity";
+    private static final String APP = "app";
     private static final String USERNAME = "username";
     private static final String ACCESS_KEY = "accessKey";
     private static final String JSON_CREDENTIALS_FILE_PATH = "src/main/resources/Credentials.json";
@@ -34,10 +36,12 @@ public class ConfigCapabilitiesCloud {
     private static void ApplicationSetUp(DesiredCapabilities capabilities){
         capabilities.setCapability("deviceName", getJsonDataProperty(DEVICE_NAME));
         capabilities.setCapability("platformName", getJsonDataProperty(PLATFORM_NAME));
+        capabilities.setCapability("appPackage", getJsonDataProperty(APP_PACKAGE));
+        capabilities.setCapability("appActivity", getJsonDataProperty(APP_ACTIVITY));
         capabilities.setCapability("platformVersion",getJsonDataProperty(PLATFORM_VERSION));
-        capabilities.setCapability("appWaitActivity", "com.imdb.mobile.HomeActivity");
+        //capabilities.setCapability("appWaitActivity", "com.imdb.mobile.HomeActivity");
         capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("app","storage:4492ea1e-5912-4d37-9fb4-688aa672d977");
+        capabilities.setCapability("app","storage:"+getJsonDataProperty(APP));
     }
     private static String getJsonDataProperty(String property) {
         try {
