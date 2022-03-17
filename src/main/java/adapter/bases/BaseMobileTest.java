@@ -29,7 +29,7 @@ public class BaseMobileTest {
 
     @BeforeSuite(alwaysRun = true)
     public void SetUp(){
-        driver = ConfigCapabilitiesCloud.getMoviesAppDriver(ConfigCapabilitiesCloud.getCapabilitiesCloud());
+        driver = MobileAppDriver.getMoviesAppDriver(ConfigCapabilities.getCapabilities());
         globalNavigationScreen = new GlobalNavigationScreen(driver);
         loginScreen = new LoginScreen(driver);
         searchScreen = new SearchScreen(driver);

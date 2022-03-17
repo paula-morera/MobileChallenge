@@ -2,14 +2,10 @@ package adapter.bases;
 
 import adapter.screens.*;
 import core.ConfigCapabilities;
+import core.ConfigCapabilitiesCloud;
 import core.MobileAppDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import io.qameta.allure.Allure;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -22,13 +18,10 @@ public class BaseMobileCloudTest {
     public MovieScreen movieScreen;
     public SearchScreen searchScreen;
     public LoginScreen loginScreen;
-    public YouScreen youScreen;
-    public WatchlistScreen watchlistScreen;
-    public RateScreen rateScreen;
 
     @BeforeSuite(alwaysRun = true)
     public void SetUp(){
-        driver = MobileAppDriver.getMoviesAppDriver(ConfigCapabilities.getCapabilities());
+        driver = ConfigCapabilitiesCloud.getMoviesAppCloudDriver(ConfigCapabilitiesCloud.getCapabilitiesCloud());
         globalNavigationScreen = new GlobalNavigationScreen(driver);
         loginScreen = new LoginScreen(driver);
         searchScreen = new SearchScreen(driver);
