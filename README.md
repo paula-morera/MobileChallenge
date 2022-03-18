@@ -1,63 +1,53 @@
 # Mobile Automation with Appium Challenge
 Mobile Testing with Appium Challenge for Endava interns
 
-## Scenarios
-#### 1. Automate the following test case:
-- Given the application IMDB 
-- Click On Skip Login 
-- When Search for a movie 
-- And click on the first result 
-- Then the overview must match with an existing overviewed text
+Following the scenarios in the guide I used Appium to create 
+a server that allows me to connect with a mobile emulator created in 
+Android Studio. And for the Maven project I decided to use the 
+repository example, because it had the framework already with the 
+configuration for the page object model and configuration for different
+aspects of the project, such us the suite xml file, the capabilities
+configuration, the bases classes, everything in an organized and 
+easy to understand appearance.
 
-#### 2. Automate the following test case:
-- Given the application IMDB 
-- Login into the application
-- Search for a movie
-- And click on any result 
-- And click on Add to watch list
-- Click on you global navigation option
-- Click on your watchlist
-- Then the watch list must contain the previous movie selected
+Before the suite is executed there is a setup procedure, that goes
+from the capabilities configuration, the application launching,
+and the basic configuration of location and login process. 
 
-#### 3. Automate the following test case:
-- Given the application IMDB 
-- Login Into the application
-- Search for a movie
-- And click on the first result
-- Scroll down to User reviews
-- Click on rate
-- And select a rate
-- Then a saved message must be displayed
+## Test scenarios
 
+There are 4 test scenarios, the mandatory ones: of overview match, 
+verification of a movie added to the watchlist and the rating of 
+a movie, for the last two it was mandatory to be logged, so I chose
+the option of sign in with Google account that is previously open
+in the emulator. 
 
-## Examination criteria
-Examination criteria will be based on 3 types of items: mandatory, forbidden and bonus points. 
+As an additional scenario I created one genre which goes 
+like;
 
-Proper use/application/implementation of these will result in the best qualification, while 
-improper application will subtract points. 
+* Given the application IMDB
+* Login into the application
+* Click on search page
+* And click on 'Most popular by genre'
+* And click on any genre
+* And click on any movie
+* Then the genre must be in the genres of the movie
 
-Sharing solutions/implementations/any code between training participants is strictly forbidden 
-and will result in full point deduction for that requirement.
+## Reporting 
+As a reporting tool I used Allure, even if TestNG has it own 
+reporting tool embedded, it isn't as visually attractive as Allure,
+that allows an easier understanding of the obtained results in the
+execution of a test or a suite. Also, it allows the incorporation of 
+images inside the report, so for the screenshot capture upon the test
+failure it's a useful tool to use. 
 
-If you need help feel free to reach me through Teams.
+The screenshot capture is made through a verification os success after 
+each method, if the method failed the capture will be attached to the 
+allure report. 
 
-## Mandatory
-- Best locator strategies 
-- Page object 
-- Base page 
-
-## Forbidden
-- Thread.sleep()
-- Positional XPath 
-- Code duplication 
-- Hard-coded data/values
-
-## Bonus points
-- You can previously create an account and manually login, this way the account would be already attached once you login 
-- Create a new test of a flow of you choice 
-- Screenshot capture upon test failure 
-- Cloud emulators/simulators integration 
-- Readme file explaining your solution / the way you approached it
-
-## Notes
-- Consider downloading the following mobile testing project or create yours from scratch
+## Cloud emulation
+For teh could emulation I sed SauceLabs as service provider, it provides
+an easy implementation for appium and capabilities configuration, reporting
+of the steps in the execution, a realtime video of the execution, that 
+later on is saved, and it has a good documentation. The only requirements
+are an account and the .apk of the application. 
