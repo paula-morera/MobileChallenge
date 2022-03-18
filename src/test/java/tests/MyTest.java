@@ -41,7 +41,7 @@ public class MyTest extends BaseMobileTest {
     }
 
     @Test
-    public void flow(){
+    public void verifyGenre(){
         globalNavigationScreen.goToSearch();
         searchScreen.popularMoviesByGenre()
                 .selectingGenre("Animation");
