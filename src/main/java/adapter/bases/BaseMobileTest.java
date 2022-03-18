@@ -3,7 +3,6 @@ package adapter.bases;
 
 import adapter.screens.*;
 import core.ConfigCapabilities;
-import core.ConfigCapabilitiesCloud;
 import core.MobileAppDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
