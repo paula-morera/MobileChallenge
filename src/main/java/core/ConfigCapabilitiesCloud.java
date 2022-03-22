@@ -25,7 +25,7 @@ public class ConfigCapabilitiesCloud {
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("app","storage:"+getJson(APP,JSON_FILE_PATH));
     }
-    public static DesiredCapabilities getCapabilitiesCloud(){
+    public static DesiredCapabilities getCapabilities(){
         if(capabilities.toJson().isEmpty()){
             ConfigCapabilitiesCloud.ApplicationSetUp(capabilities);
         }
