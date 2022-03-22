@@ -2,6 +2,7 @@ package adapter.bases;
 
 import adapter.screens.*;
 import core.ConfigCapabilitiesCloud;
+import core.MobileAppDriverCloud;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.testng.annotations.AfterSuite;
@@ -17,7 +18,7 @@ public class BaseMobileCloudTest {
 
     @BeforeSuite(alwaysRun = true)
     public void SetUp(){
-        driver = ConfigCapabilitiesCloud.getMoviesAppCloudDriver(ConfigCapabilitiesCloud.getCapabilitiesCloud());
+        driver = MobileAppDriverCloud.getMoviesAppCloudDriver(ConfigCapabilitiesCloud.getCapabilitiesCloud());
         globalNavigationScreen = new GlobalNavigationScreen(driver);
         loginScreen = new LoginScreen(driver);
         searchScreen = new SearchScreen(driver);
