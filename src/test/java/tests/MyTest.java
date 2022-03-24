@@ -20,7 +20,7 @@ public class MyTest extends BaseMobileTest {
     public void watchList(){
         String movieAdded;
         globalNavigationScreen.goToSearch();
-        movieAdded = searchScreen.typeMovie("the little mermaid")
+        movieAdded = searchScreen.typeMovie("Batman")
                                 .selectMovie(0);
         movieScreen.addToList();
         globalNavigationScreen.goToYou();
@@ -31,7 +31,7 @@ public class MyTest extends BaseMobileTest {
     @Test
     public void rateMovie(){
         globalNavigationScreen.goToSearch();
-        searchScreen.typeMovie("shutter island")
+        searchScreen.typeMovie("Shutter island")
                 .selectMovie(0);
         movieScreen.scrollUserReviews()
                 .rateMovie();
@@ -44,9 +44,9 @@ public class MyTest extends BaseMobileTest {
     public void verifyGenre(){
         globalNavigationScreen.goToSearch();
         searchScreen.popularMoviesByGenre()
-                .selectingGenre("Animation");
+                .selectingGenre("Musical");
         genreScreen.selectMovie(2);
-        Assert.assertTrue(movieScreen.isGenreInMovie("Animation"));
+        Assert.assertTrue(movieScreen.isGenreInMovie("Musical"));
     }
 }
 

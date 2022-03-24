@@ -18,7 +18,6 @@ public class BaseMobileScreen {
     private WebDriverWait wait;
     private AndroidElement androidElement;
     private By homeElementBy = By.id("com.imdb.mobile:id/video_hero_view");
-    private String scroll = "new UiScrollable(.scrollable(true)).scrollToBeginning(1)";
 
     public BaseMobileScreen(AndroidDriver<AndroidElement> driver)  {
         this.driver = driver;
